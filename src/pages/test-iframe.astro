@@ -1,0 +1,28 @@
+---
+---
+
+<ul class="menu menu-horizontal bg-base-200">
+  <li><a href="/species-iframe/Adelie" target="iframe-species">Adelie</a></li>
+  <li><a href="/species-iframe/Chinstrap" target="iframe-species">Chinstrap</a></li>
+  <li><a href="/species-iframe/Gentoo" target="iframe-species">Gentoo</a></li>
+</ul>
+
+<!-- Iframe affichant Adelie par défaut -->
+<iframe
+  src="/species-iframe/Adelie"
+  name="iframe-species"
+  id="iframe-species"
+  style="width:100%; border:none; height:600px;"
+  onload="resizeIframe(this)"></iframe>
+
+<!-- Script pour redimensionner la hauteur -->
+<script>
+  function resizeIframe(iframe) {
+    try {
+      iframe.style.height =
+        iframe.contentWindow.document.body.scrollHeight + "px";
+    } catch (e) {
+      // Si cross-origin, ignore
+    }
+  }
+</script>

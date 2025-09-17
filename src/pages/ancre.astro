@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro";
+import GraphicSpecies from "../components/GraphicSpecies.astro";
+---
+
+<ul>
+  <li><a href="#adelie">Adelie</a></li>
+  <li><a href="#chinstrap">Chinstrap</a></li>
+  <li><a href="#gentoo">Gentoo</a></li>
+</ul>
+
+<div class="flex w-full overflow-x-auto snap-x snap-mandatory scroll-smooth">
+  <div id="adelie">
+    <GraphicSpecies species="Adelie" class="min-w-full snap-start" />
+  </div>
+  <div id="chinstrap">
+    <GraphicSpecies species="Chinstrap" class="min-w-full snap-start" />
+  </div>
+  <div id="gentoo">
+    <GraphicSpecies species="Gentoo" />
+  </div>
+</div>

@@ -1,0 +1,28 @@
+---
+import Layout from "../layouts/Layout.astro";
+import * as Plot from "@observablehq/plot";
+import PlotFigure from "../components/PlotFigure.astro";
+import penguins from "../assets/penguins.json";
+import weather from "../assets/weather.json";
+import olympians from "../assets/olympians.json";
+import gistemp from "../assets/gistemp.json";
+
+const seattle = weather.filter((d) => d.location === "Seattle, WA");
+---
+
+<Layout>
+  <div>
+    <h1>Penguins</h1>
+    <PlotFigure
+      options={{
+        marks: [
+          Plot.dot(penguins, {
+            x: "culmen_length_mm",
+            y: "culmen_depth_mm",
+            stroke: "species",
+          }),
+        ],
+      }}
+    />
+  </div>
+</Layout>
