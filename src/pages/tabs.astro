@@ -1,0 +1,35 @@
+---
+import Layout from "../layouts/Layout.astro";
+import GraphicSpecies from "../components/GraphicSpecies.astro";
+import { Tabs, TabsList, TabsTab, TabsPanel } from 'accessible-astro-components';
+---
+
+<Layout>
+  <div class="container mx-auto p-6">
+    <Tabs>
+      <TabsList class="tabs tabs-boxed justify-center mb-6">
+        <TabsTab id="tab-adelie" controls="panel-adelie" selected class="tab">Adelie</TabsTab>
+        <TabsTab id="tab-chinstrap" controls="panel-chinstrap" class="tab">Chinstrap</TabsTab>
+        <TabsTab id="tab-gentoo" controls="panel-gentoo" class="tab">Gentoo</TabsTab>
+      </TabsList>
+
+      <TabsPanel id="panel-adelie" labelledby="tab-adelie" selected class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <GraphicSpecies species="Adelie" />
+        </div>
+      </TabsPanel>
+      
+      <TabsPanel id="panel-chinstrap" labelledby="tab-chinstrap" class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <GraphicSpecies species="Chinstrap" />
+        </div>
+      </TabsPanel>
+      
+      <TabsPanel id="panel-gentoo" labelledby="tab-gentoo" class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <GraphicSpecies species="Gentoo" />
+        </div>
+      </TabsPanel>
+    </Tabs>
+  </div>
+</Layout>
