@@ -6,10 +6,24 @@ import penguins from "../assets/penguins.json";
 import weather from "../assets/weather.json";
 import olympians from "../assets/olympians.json";
 import gistemp from "../assets/gistemp.json";
-import Header from "../components/Header.astro";
+import Menu from "../components/Menu.astro";
 
 const seattle = weather.filter((d) => d.location === "Seattle, WA");
 ---
 
 <Layout>
+  <div>
+    <h1>Penguins</h1>
+    <PlotFigure
+      options={{
+        marks: [
+          Plot.dot(penguins, {
+            x: "culmen_length_mm",
+            y: "culmen_depth_mm",
+            stroke: "species",
+          }),
+        ],
+      }}
+    />
+  </div>
 </Layout>

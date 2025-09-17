@@ -1,0 +1,17 @@
+<select id="species">
+  <option value="Adelie">Adelie</option>
+  <option value="Chinstrap">Chinstrap</option>
+  <option value="Gentoo">Gentoo</option>
+</select>
+
+<script>
+  document.querySelector("#species")?.addEventListener("change", (evt) => {
+    const value = (evt.target as HTMLSelectElement).value;
+    const iframe = document.getElementById(
+      "iframe-species"
+    ) as HTMLIFrameElement;
+    if (iframe) {
+      iframe.src = "/species-iframe/" + value;
+    }
+  });
+</script>
