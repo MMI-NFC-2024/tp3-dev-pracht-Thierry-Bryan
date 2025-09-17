@@ -7,29 +7,35 @@ import { Tabs, TabsList, TabsTab, TabsPanel } from 'accessible-astro-components'
 <Layout>
   <div class="container mx-auto p-6">
     <Tabs>
-      <TabsList class="tabs tabs-boxed justify-center mb-6">
-        <TabsTab id="tab-adelie" controls="panel-adelie" selected class="tab">Adelie</TabsTab>
-        <TabsTab id="tab-chinstrap" controls="panel-chinstrap" class="tab">Chinstrap</TabsTab>
-        <TabsTab id="tab-gentoo" controls="panel-gentoo" class="tab">Gentoo</TabsTab>
-      </TabsList>
+      <!-- Boutons des onglets en haut -->
+      <div class="!w-full !mb-8">
+        <TabsList class="!flex !justify-center !w-full">
+          <TabsTab id="tab-adelie" controls="panel-adelie" selected class="!btn !btn-outline !btn-primary !px-6 !py-3 !text-lg !font-semibold !mr-2">Adelie</TabsTab>
+          <TabsTab id="tab-chinstrap" controls="panel-chinstrap" class="!btn !btn-outline !btn-primary !px-6 !py-3 !text-lg !font-semibold !mr-2">Chinstrap</TabsTab>
+          <TabsTab id="tab-gentoo" controls="panel-gentoo" class="!btn !btn-outline !btn-primary !px-6 !py-3 !text-lg !font-semibold">Gentoo</TabsTab>
+        </TabsList>
+      </div>
 
-      <TabsPanel id="panel-adelie" labelledby="tab-adelie" selected class="card bg-base-100 shadow-xl">
-        <div class="card-body">
-          <GraphicSpecies species="Adelie" />
-        </div>
-      </TabsPanel>
-      
-      <TabsPanel id="panel-chinstrap" labelledby="tab-chinstrap" class="card bg-base-100 shadow-xl">
-        <div class="card-body">
-          <GraphicSpecies species="Chinstrap" />
-        </div>
-      </TabsPanel>
-      
-      <TabsPanel id="panel-gentoo" labelledby="tab-gentoo" class="card bg-base-100 shadow-xl">
-        <div class="card-body">
-          <GraphicSpecies species="Gentoo" />
-        </div>
-      </TabsPanel>
+      <!-- Graphiques en dessous -->
+      <div class="!w-full !clear-both !flex !justify-center">
+        <TabsPanel id="panel-adelie" labelledby="tab-adelie" selected class="card bg-base-100 !mx-auto">
+          <div class="card-body !text-center">
+            <GraphicSpecies species="Adelie" />
+          </div>
+        </TabsPanel>
+        
+        <TabsPanel id="panel-chinstrap" labelledby="tab-chinstrap" class="card bg-base-100 !mx-auto">
+          <div class="card-body !text-center">
+            <GraphicSpecies species="Chinstrap" />
+          </div>
+        </TabsPanel>
+
+        <TabsPanel id="panel-gentoo" labelledby="tab-gentoo" class="card bg-base-100 !mx-auto">
+          <div class="card-body !text-center">
+            <GraphicSpecies species="Gentoo" />
+          </div>
+        </TabsPanel>
+      </div>
     </Tabs>
   </div>
 </Layout>
