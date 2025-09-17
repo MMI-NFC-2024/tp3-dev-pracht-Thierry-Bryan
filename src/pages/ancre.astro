@@ -4,16 +4,13 @@ import GraphicSpecies from "../components/GraphicSpecies.astro";
 ---
 
 <Layout>
-  <!-- Menu esthétique avec DaisyUI -->
-  <div class="navbar">
-    <div class="navbar-center">
-      <div class="tabs tabs-boxed">
-        <a href="#adelie" class="tab tab-active">🐧 Adelie</a>
-        <a href="#chinstrap" class="tab">🐧 Chinstrap</a>
-        <a href="#gentoo" class="tab">🐧 Gentoo</a>
-      </div>
-    </div>
-  </div>
+  <!-- Menu select pour naviguer vers les ancres -->
+  <select id="species" class="select select-bordered w-full max-w-xs">
+    <option disabled selected>Choisir une espèce</option>
+    <option value="adelie">Adelie</option>
+    <option value="chinstrap">Chinstrap</option>
+    <option value="gentoo">Gentoo</option>
+  </select>
 
   <div class="carousel w-full">
     <div id="adelie" class="carousel-item w-full">
@@ -33,3 +30,11 @@ import GraphicSpecies from "../components/GraphicSpecies.astro";
     scroll-behavior: smooth;
   }
 </style>
+
+<script>
+  document.querySelector("#species")?.addEventListener("change", (evt) => {
+    const value = (evt.target as HTMLSelectElement).value;
+    // Utiliser location.hash pour naviguer vers les ancres
+    location.hash = "#" + value;
+  });
+</script>
